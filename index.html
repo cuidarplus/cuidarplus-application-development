@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transit SP - Olho Vivo SPTrans</title>
+    <!-- Leaflet CSS para Mapas -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="logo-area">
+            <h1>Transit <span>SP</span></h1>
+            <p>Mobilidade Urbana em São Paulo - Olho Vivo SPTrans</p>
+        </div>
+        <div class="header-controls">
+            <button id="btn-accessibility" title="Alternar modo acessibilidade (Alto Contraste)">♿ Acessibilidade</button>
+        </div>
+    </header>
+
+    <div class="auth-bar" id="auth-section">
+        <div class="auth-container">
+            <label for="api-token">Token SPTrans Olho Vivo:</label>
+            <input type="text" id="api-token" placeholder="Insira seu token de acesso da API">
+            <button id="btn-autenticar">Conectar API</button>
+            <span id="auth-status" class="status-disconnected">Desconectado</span>
+        </div>
+    </div>
+
+    <main class="main-container">
+        <!-- Navegação por Abas -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="tab-paradas">🚏 Próximos Pontos</button>
+            <button class="tab-btn" data-tab="tab-linhas">🚌 Buscar Linhas</button>
+            <button class="tab-btn" data-tab="tab-mapa">🗺️ Tempo Real (Mapa)</button>
+        </nav>
+
+        <!-- Aba 1: Próximos Pontos / Previsão -->
+        <section id="tab-paradas" class="tab-content active">
+            <div class="card search-card">
+                <h2>Consultar Previsão em Ponto de Ônibus</h2>
+                <div class="input-group">
+                    <input type="text" id="input-busca-parada" placeholder="Ex: Av. Paulista, Lapa...">
+                    <button id="btn-buscar-parada">Buscar Pontos</button>
+                </div>
+                <div id="lista-paradas" class="results-list"></div>
+            </div>
+
+            <div class="card prediction-card" id="painel-previsoes" style="display: none;">
+                <h3 id="titulo-ponto-selecionado">Ponto Selecionado</h3>
+                <div id="conteudo-previsoes" class="predictions-grid"></div>
+            </div>
+        </section>
+
+        <!-- Aba 2: Buscar Linhas e Trajeto -->
+        <section id="tab-linhas" class="tab-content">
+            <div class="card search-card">
+                <h2>Buscar Linhas de Ônibus</h2>
+                <div class="input-group">
+                    <input type="text" id="input-busca-linha" placeholder="Ex: 875A, 8000, Lapa...">
+                    <button id="btn-buscar-linha">Buscar Linhas</button>
+                </div>
+                <div id="lista-linhas" class="results-list"></div>
+            </div>
+
+            <div class="card line-details-card" id="detalhes-linha" style="display: none;">
+                <h3 id="titulo-linha-detalhe">Detalhes da Linha</h3>
+                <div class="line-actions">
+                    <button id="btn-ver-no-mapa">Ver Ônibus no Mapa</button>
+                    <button id="btn-ver-paradas-linha">Ver Paradas do Trajeto</button>
+                </div>
+                <div id="conteudo-paradas-linha" class="results-list"></div>
+            </div>
+        </section>
+
+        <!-- Aba 3: Mapa em Tempo Real -->
+        <section id="tab-mapa" class="tab-content">
+            <div class="card map-card">
+                <h2>Posição dos Ônibus em Tempo Real</h2>
+                <p class="map-instruction">Selecione uma linha na aba "Buscar Linhas" e clique em "Ver Ônibus no Mapa" para rastrear os veículos.</p>
+                <div id="map"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>Dados fornecidos por <strong>SPTrans Olho Vivo</strong> | Desenvolvido para FIAP - Global Solution 2026.2 (Ciência da Computação)</p>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

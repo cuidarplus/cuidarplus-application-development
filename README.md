@@ -1,1 +1,0 @@
-# cuidarplus-application-development

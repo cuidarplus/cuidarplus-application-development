@@ -62,6 +62,18 @@ body {
     opacity: 0.9;
 }
 
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.status-connected {
+    color: #a5d6a7;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
 .header-controls button {
     background: white;
     color: var(--primary-color);
@@ -75,47 +87,6 @@ body {
 
 .header-controls button:hover {
     background: #f1f1f1;
-}
-
-.auth-bar {
-    background: #fff;
-    border-bottom: 1px solid var(--border-color);
-    padding: 0.75rem 2rem;
-}
-
-.auth-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.auth-container input {
-    padding: 0.5rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    width: 300px;
-}
-
-.auth-container button {
-    padding: 0.5rem 1rem;
-    background-color: var(--secondary-color);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.status-disconnected {
-    color: var(--danger-color);
-    font-weight: 600;
-}
-
-.status-connected {
-    color: var(--success-color);
-    font-weight: 600;
 }
 
 .main-container {

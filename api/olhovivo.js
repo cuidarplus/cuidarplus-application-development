@@ -1,6 +1,6 @@
 // api/olhovivo.js - proxy da Olho Vivo (roda no Vercel e no server.js local)
 const BASES = ['https://api.olhovivo.sptrans.com.br/v2.1', 'http://api.olhovivo.sptrans.com.br/v2.1'];
-const TOKEN = process.env.OLHOVIVO_TOKEN || 'e41f3fe7c0f1e88e9e48868053ccdea844f82ff2a00fde643d8cb825783d384d';
+const TOKEN = process.env.OLHOVIVO_TOKEN || '98a51abe3570278087cfd5c4a7fc0da17a5a838fb64bde2cebf706617db6fc38';
 
 // só deixa passar os endpoints que o app usa
 const PERMITIDOS = [
